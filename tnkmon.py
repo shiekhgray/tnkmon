@@ -10,10 +10,16 @@
 
 import os
 #import RPi.GPIO as gpio
-from sqlite3 import dbapi2 as sqlite
+import sqlite3 
+import datetime
+import tnkcron
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 
+
+#######
+# create Flask app
+#######
 tnkmon = Flask(__name__)
 
 tnkmon.config.update(dict(
@@ -54,19 +60,30 @@ def close_database(error):
 
 @tnkmon.route('/')
 def home():
+    #link to lights
+    #link to CO2
+    #show webcam capture if lights are on
     return "Coming soon!"
 
 @tnkmon.route('/webcam')
 def webcam():
+    #just run webcam-streamer to the browser
     return "Coming soon!"
 
 @tnkmon.route('/lights')
 def lights():
-    return "Coming soon!"
+    #turn lights on
+    #turn lights off
+    #automatic schedule
+    #color schedule?
+    return tnkcron.db('light')
 
 @tnkmon.route('/co2')
 def co2():
-    return "Coming soon!"
+    #Turn on CO2 (only if lights are on)
+    #Turn off CO2 (automatically if lights are off)
+    #schedule
+    return tnkcron.db('co2')
 
 
 if __name__ == "__main__":
