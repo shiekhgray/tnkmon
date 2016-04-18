@@ -18,7 +18,7 @@ with conn:
     cursor.execute("DROP TABLE IF EXISTS webctl")
 
     cursor.execute("CREATE TABLE webctl (key TEXT, value FLOAT)")
-    cursor.execute("INSERT INTO webctl VALUES('light_on_start', 9)")
+    cursor.execute("INSERT INTO webctl VALUES('light_on_start', 9.25)")
     cursor.execute("INSERT INTO webctl VALUES('light_on_dur', 8)")
-    cursor.execute("INSERT INTO webctl VALUES('co2_on_start', 9)")
-    cursor.execute("INSERT INTO webctl VALUES('co2_on_dur', 6)")
+    cursor.execute("INSERT INTO webctl VALUES('co2_on_start', 9.25)")
+    cursor.execute("INSERT INTO webctl VALUES('co2_on_dur', 5)")
