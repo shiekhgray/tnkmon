@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<title>tnkmon</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="top">
+<h1>tnkmon</h1>
+</div>
+<div class="links">
+<h2>links</h2>
+<a href='{{url_for('home')}}'>home</a><br/>
+<a href='{{url_for('lights')}}'>lights</a><br />
+<a href='{{url_for('co2')}}'>co2</a><br />
+<a href='{{url_for('webcam')}}'>webcam</a><br />
+<a href='{{url_for('timelapses')}}'></a><br />
+</div>
+<div class="main">
+<h2>{{content}}</h2>
+</div>
+</body>
+</html>
