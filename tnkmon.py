@@ -63,12 +63,12 @@ def home():
     #link to lights
     #link to CO2
     #show webcam capture if lights are on
-    return render_template('page.html', content="coming soon")
+    return render_template('home.html')
 
 @tnkmon.route('/webcam')
 def webcam():
     #just run webcam-streamer to the browser
-    return render_template('page.html', content="coming soon")
+    return render_template('webcam.html')
 
 
 @tnkmon.route('/lights')
@@ -78,7 +78,7 @@ def lights():
     #automatic schedule
     #color schedule?
     light_status = tnkcron.db('light')
-    return render_template('page.html', content=light_status)
+    return render_template('lights.html', content=light_status)
 
 @tnkmon.route('/co2')
 def co2():
@@ -86,14 +86,14 @@ def co2():
     #Turn off CO2 (automatically if lights are off)
     #schedule
     co2_status = tnkcron.db('co2')
-    return render_template('page.html', content=co2_status)
+    return render_template('co2.html', content=co2_status)
 
 
 @tnkmon.route('/timelapses')
 def timelapses():
     #do a daily timelapse
     #show all previous timelapses.
-    return render_template('page.html', content="coming soon")
+    return render_template('timelapses.html')
 
 
 
