@@ -14,10 +14,10 @@
 <a href='{{url_for('lights')}}'>lights</a><br />
 <a href='{{url_for('co2')}}'>co2</a><br />
 <a href='{{url_for('webcam')}}'>webcam</a><br />
-<a href='{{url_for('timelapses')}}'></a><br />
+<a href='{{url_for('timelapses')}}'>timelapses</a><br />
 </div>
 <div class="main">
-<h2>{{content}}</h2>
+{% block body %}{% endblock %}
 </div>
 </body>
 </html>
