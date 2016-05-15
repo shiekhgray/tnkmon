@@ -86,11 +86,17 @@ def lights():
     light_status = tnkcron.db('light')
     return render_template('lights.html', content=light_status)
 
-@tnkmon.route('/co2')
+@tnkmon.route('/co2', methods=['POST', 'GET'])
 def co2():
     #Turn on CO2 (only if lights are on)
     #Turn off CO2 (automatically if lights are off)
     #schedule
+    if request.method == 'POST':
+        if request.form['co2'] == "on":
+            tnkcron.set_plug_state("co2","on")
+        elif request.form['co2'] == "off":
+            tnkcron.set_plug_state("co2","off")
+
     co2_status = tnkcron.db('co2')
     return render_template('co2.html', content=co2_status)
 

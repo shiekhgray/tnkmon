@@ -1,4 +1,11 @@
 {% extends "page.html" %}
 {% block body %}
-<p>CO2 is {{content}}<p>
+<p>CO2 is {{content}}</p>
+<p>
+<form action="{{url_for('co2') }}" method="post">
+    <input type="radio" name="co2" value="on" checked>On<br />
+    <input type="radio" name="co2" value="off">Off<br />
+    <input type="submit" value="set co2">
+</form>
+</p>
 {% endblock %}
