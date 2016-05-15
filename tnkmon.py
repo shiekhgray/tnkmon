@@ -71,7 +71,7 @@ def webcam():
     return render_template('webcam.html')
 
 
-@tnkmon.route('/lights')
+@tnkmon.route('/lights', methods=['POST'])
 def lights():
     #turn lights on
     #turn lights off
@@ -100,7 +100,6 @@ def timelapses():
     #do a daily timelapse
     #show all previous timelapses.
     return render_template('timelapses.html')
-
 
 
 if __name__ == "__main__":
