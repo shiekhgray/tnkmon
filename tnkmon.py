@@ -104,4 +104,4 @@ def timelapses():
 
 
 if __name__ == "__main__":
-    tnkmon.run()
+    tnkmon.run(host='0.0.0.0')
