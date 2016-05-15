@@ -71,7 +71,7 @@ def webcam():
     return render_template('webcam.html')
 
 
-@tnkmon.route('/lights', methods=['POST'])
+@tnkmon.route('/lights', methods=['POST', 'GET'])
 def lights():
     #turn lights on
     #turn lights off
