@@ -1,8 +1,13 @@
 #!/usr/bin/env python
-
+import wiringpi as gpio
+import time
 import os
 import sqlite3
 import datetime
+
+gpio.wiringPiSetup()
+light_pin = 0
+co2_pin = 7
 
 #connect to DB
 def db(query):
@@ -59,3 +64,20 @@ def db(query):
 
     else:
         return "query not recognized"
+
+def set_plug_state(plug, set_state):
+    if plug == "light":
+        pin = light_pin
+    elif plug == "co2":
+        pin = co2_pin
+    else:
+        raise LookupError("Error: " + plug + " is an unrecognized control pin; expects 'light' or 'co2'.")
+
+    if set_state == "on":
+        state = 0
+    elif set_state == "off":
+        state = 1
+    else:
+        raise LookupError("Error: " + state + " is an unrecognized state; expects 'on' or 'off'.")
+
+    gpio.digitalWrite(pin, state)
