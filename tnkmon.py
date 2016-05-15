@@ -77,6 +77,12 @@ def lights():
     #turn lights off
     #automatic schedule
     #color schedule?
+    if request.method == 'POST':
+        if request.form['lights'] == "on":
+            tnkcron.set_plug_state("light","on")
+        elif request.form['lights'] == "off":
+            tnkcron.set_plug_state("light","off")
+       
     light_status = tnkcron.db('light')
     return render_template('lights.html', content=light_status)
 

@@ -1,4 +1,10 @@
 {% extends "page.html" %}
 {% block body %}
 <p>Lights are {{content}}</p>
+<p>
+<form action="{{url_for('lights') }}" method="post">
+    <input type="radio" name="lights" value="on" checked>On<br />
+    <input type="radio" name="lights" value="off">Off<br />
+    <input type="submit" value="set lights">
+</p>
 {% endblock %}
